@@ -1,0 +1,52 @@
+<!-- Barra de busca onde o usuário pode inserir os critérios de pesquisa -->
+<div class="search-bar">
+  <!-- Campo de entrada para o termo de busca -->
+  <input #termo type="text" placeholder="Buscar produtos" (keyup.enter)="buscarProdutos(termo.value)">
+  
+  <!-- Dropdown para selecionar a condição do produto -->
+  <select #condicao>
+    <option value="">Condição</option> <!-- Opção padrão -->
+    <option value="new">Novo</option> <!-- Opção para produtos novos -->
+    <option value="used">Usado</option> <!-- Opção para produtos usados -->
+  </select>
+
+  <!-- Campo de entrada para o preço mínimo -->
+  <input #precoMin type="number" placeholder="Preço mín.">
+  
+  <!-- Campo de entrada para o preço máximo -->
+  <input #precoMax type="number" placeholder="Preço máx.">
+
+  <!-- Botão que, ao ser clicado, chama a função 'buscarProdutos' passando os valores dos campos -->
+  <button (click)="buscarProdutos(termo.value, precoMin.value, precoMax.value, condicao.value)">Buscar</button>  
+</div>
+
+<!-- Se a lista de produtos não estiver vazia, exibe os resultados da busca -->
+<div class="container" *ngIf="produtos.length > 0">
+  <h3>Produtos Encontrados:</h3>
+  <h3 class="detalhes">Clique nas imagens para obter mais detalhes</h3>
+  <ul class="produtos-list">
+    <!-- Para cada produto na lista de produtos, cria um item de lista -->
+    <li *ngFor="let produto of produtos">      
+      <!-- Imagem do produto, com binding para a URL da thumbnail -->
+      <img [src]="produto.thumbnail" alt="imagem do produto" (click)="toggleDetails(produto)" style="cursor: pointer;">
+      <!-- Título do produto -->
+      <p>{{ produto.title }}</p>
+      <!-- Preço do produto, formatado em reais -->
+      <p>Preço: R$ {{ produto.price }}</p>
+      <!-- Condição do produto, exibindo 'Novo' ou 'Usado' dependendo do valor -->
+      <p>Condição: {{ produto.condition === 'new' ? 'Novo' : 'Usado' }}</p>
+      
+      <!-- Se o produto está expandido, exibe mais detalhes -->
+      <div *ngIf="produto.expanded">
+        <p><strong>Mais detalhes:</strong></p>
+        <p>{{ produto.description }}</p> <!-- Supondo que a descrição já foi carregada -->
+        <a [href]="produto.permalink" target="_blank">Veja este produto no Mercado Livre</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- Se houver uma mensagem de erro, exibe-a -->
+<div *ngIf="erro">
+  <p>{{ erro }}</p> <!-- Mensagem de erro -->
+</div>

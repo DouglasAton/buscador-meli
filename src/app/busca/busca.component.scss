@@ -1,0 +1,93 @@
+/* Estilos para a barra de busca */
+div {
+  display: flex; /* Utiliza o modelo flexbox para organizar os elementos dentro da div */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: center; /* Alinha os itens horizontalmente ao centro */
+  gap: 15px; /* Espaçamento uniforme entre os elementos */
+  margin-bottom: 20px; /* Espaço abaixo da barra de busca */
+}
+
+input, select, button {
+  padding: 8px; /* Adiciona espaço interno nos elementos */
+  border-radius: 4px; /* Arredonda os cantos dos elementos */
+  border: 1px solid #ccc; /* Define a borda com uma cor cinza clara */
+  font-size: 14px; /* Define o tamanho da fonte para os elementos */
+}
+
+input {
+  width: 200px; /* Define a largura fixa para o campo de entrada */
+}
+
+select {
+  width: 150px; /* Define a largura fixa para o seletor */
+}
+
+button {
+  background-color: #007bff; /* Define a cor de fundo do botão */
+  color: white; /* Define a cor do texto do botão */
+  border: none; /* Remove a borda padrão do botão */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  font-size: 14px; /* Define o tamanho da fonte para o botão */
+}
+
+/* Muda a cor do botão ao passar o mouse */
+button:hover {
+  background-color: #0056b3; /* Escurece a cor de fundo quando o mouse passa sobre o botão */
+}
+
+/* Centralizando o título */
+h3 {
+  text-align: center;
+  font-size: 20px; /* Aumentando o tamanho da fonte para destaque */
+  margin: 20px 0; /* Ajustando margens para espaçamento */
+}
+
+.detalhes {
+  text-align: center;
+  font-size: 15px; /* Aumentando o tamanho da fonte para destaque */
+  margin: 15px 0; /* Ajustando margens para espaçamento */
+}
+
+/* Estilo geral do container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Garante que o container ocupe toda a largura */
+}
+
+/* Estilos para a lista de produtos */
+.produtos-list {
+  list-style-type: none; /* Remove os marcadores padrão da lista */
+  padding: 0; /* Remove o espaçamento interno da lista */
+  display: list-item; /* Utiliza o modelo flexbox para a lista de produtos */
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha se não houver espaço suficiente */
+  justify-content: center; /* Centraliza os produtos horizontalmente */
+}
+
+li {
+  border: 1px solid #eee; /* Define uma borda leve para os itens da lista */
+  border-radius: 8px; /* Arredonda os cantos dos itens da lista */
+  padding: 15px; /* Adiciona espaço interno aos itens */
+  margin: 10px; /* Espaço externo entre os itens */
+  width: 500px; /* Define a largura fixa para cada item */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona sombra leve para profundidade */
+  text-align: center; /* Centraliza o texto dentro dos itens */
+  cursor: pointer; /* Indica que o item é clicável */
+  transition: background-color 0.3s; /* Adiciona uma transição suave para mudanças de cor */
+}
+
+/* Muda a cor do item ao passar o mouse */
+li:hover {
+  background-color: #f0f0f0; /* Muda a cor de fundo quando o mouse passa sobre o item */
+}
+
+li img {
+  max-width: 100px; /* Define a largura máxima da imagem para evitar que fique muito grande */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 10px; /* Espaço abaixo da imagem */
+}
+
+p {
+  margin: 5px 0; /* Espaço vertical entre os parágrafos */
+}

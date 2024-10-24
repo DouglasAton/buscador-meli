@@ -1,0 +1,30 @@
+main {
+  width: 100%; /* Ocupa 100% da largura da tela */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 1rem;
+  box-sizing: border-box; /* Inclui padding na largura total */
+  background-color: yellow;    
+}
+
+img {
+  width: 100%; /* Faz a imagem ocupar a largura disponível */
+  max-width: 300px; /* Limita a largura máxima da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.container {
+  width: 100%; /* Ocupa toda a largura */
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo dentro do container */
+  padding: 2rem; /* Ajusta o padding conforme necessário */
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  padding: 2rem; /* Reduz o padding para melhorar a responsividade */
+  width: 100%; /* O div também ocupa 100% da largura */
+  box-sizing: border-box; /* Inclui o padding no cálculo da largura */
+}
