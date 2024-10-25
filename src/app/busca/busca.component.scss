@@ -38,14 +38,20 @@ button:hover {
 /* Centralizando o título */
 h3 {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px; /* Aumentando o tamanho da fonte para destaque */
-  margin: 20px 0; /* Ajustando margens para espaçamento */
+  margin: 10px 0; /* Ajustando margens para espaçamento */
 }
 
-.detalhes {
-  text-align: center;
-  font-size: 15px; /* Aumentando o tamanho da fonte para destaque */
-  margin: 15px 0; /* Ajustando margens para espaçamento */
+.detalhes-link {
+  color: #0056b3;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 0; /* Ajustando margens para espaçamento */
+}
+
+.detalhes-produto {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Estilo geral do container */

@@ -22,25 +22,24 @@
 
 <!-- Se a lista de produtos não estiver vazia, exibe os resultados da busca -->
 <div class="container" *ngIf="produtos.length > 0">
-  <h3>Produtos Encontrados:</h3>
-  <h3 class="detalhes">Clique nas imagens para obter mais detalhes</h3>
+  <h3>Produtos Encontrados:</h3>  
+  
   <ul class="produtos-list">
     <!-- Para cada produto na lista de produtos, cria um item de lista -->
-    <li *ngFor="let produto of produtos">      
+    <li *ngFor="let produto of produtos" (click)="toggleDetails(produto)" style="cursor: pointer;">      
       <!-- Imagem do produto, com binding para a URL da thumbnail -->
-      <img [src]="produto.thumbnail" alt="imagem do produto" (click)="toggleDetails(produto)" style="cursor: pointer;">
+      <img [src]="produto.thumbnail" alt="imagem do produto">
       <!-- Título do produto -->
-      <p>{{ produto.title }}</p>
+      <p class="detalhes-produto">{{ produto.title }}</p>
       <!-- Preço do produto, formatado em reais -->
-      <p>Preço: R$ {{ produto.price }}</p>
+      <p class="detalhes-produto">Preço: R$ {{ produto.price }}</p>
       <!-- Condição do produto, exibindo 'Novo' ou 'Usado' dependendo do valor -->
-      <p>Condição: {{ produto.condition === 'new' ? 'Novo' : 'Usado' }}</p>
+      <p class="detalhes-produto">Condição: {{ produto.condition === 'new' ? 'Novo' : 'Usado' }}</p>
       
       <!-- Se o produto está expandido, exibe mais detalhes -->
-      <div *ngIf="produto.expanded">
-        <p><strong>Mais detalhes:</strong></p>
+      <div *ngIf="produto.expanded">        
         <p>{{ produto.description }}</p> <!-- Supondo que a descrição já foi carregada -->
-        <a [href]="produto.permalink" target="_blank">Veja este produto no Mercado Livre</a>
+        <a class="detalhes-link" [href]="produto.permalink" target="_blank">Acesse o link do produto no Mercado Livre</a>
       </div>
     </li>
   </ul>

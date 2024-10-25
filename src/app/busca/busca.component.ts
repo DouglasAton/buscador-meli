@@ -39,28 +39,42 @@ export class BuscaComponent {
       });
     }
   }
-
+  
   // Função que captura os valores dos inputs e faz a busca
   buscarProdutos(termoPesquisado: string, precoMinimo?: string, precoMaximo?: string, condicao?: string): void {
     // Converte os preços mínimos e máximos de string para número, se fornecidos
-    this.precoMinimo = precoMinimo ? Number(precoMinimo) : undefined; // Define o preço mínimo
-    this.precoMaximo = precoMaximo ? Number(precoMaximo) : undefined; // Define o preço máximo
+    this.precoMinimo = precoMinimo ? Number(precoMinimo) : undefined;
+    this.precoMaximo = precoMaximo ? Number(precoMaximo) : undefined;    
 
-    // Chama o método 'searchProducts' do serviço MeliService e assina a resposta
+    // Chama o método 'searchProducts' do serviço MeliService e assina a resposta    
     this.meliService.searchProducts(termoPesquisado, this.precoMinimo, this.precoMaximo, condicao).subscribe({
-      // Se a busca for bem-sucedida, armazena os resultados e limpa a mensagem de erro
+      
       next: (data) => {
-        // Filtra os produtos para atender aos critérios de preço, se ambos forem definidos
-        this.produtos = data.results.filter((produto: any) => {
-          const price = produto.price;
-          const minPriceCondition = this.precoMinimo !== undefined ? price >= this.precoMinimo : true; // Verifica se o preço é maior ou igual ao mínimo
-          const maxPriceCondition = this.precoMaximo !== undefined ? price <= this.precoMaximo : true; // Verifica se o preço é menor ou igual ao máximo
-          return minPriceCondition && maxPriceCondition; // Retorna true se atender aos critérios de preço
-        });
-        this.erro = ''; // Limpa mensagens de erro
+        // Verifica se a API retornou resultados
+        if (data.results && data.results.length > 0) {
+          // Filtra os produtos para atender aos critérios de preço, se ambos forem definidos
+          this.produtos = data.results.filter((produto: any) => {
+            const price = produto.price;
+            const minPriceCondition = this.precoMinimo !== undefined ? price >= this.precoMinimo : true;
+            const maxPriceCondition = this.precoMaximo !== undefined ? price <= this.precoMaximo : true;
+            return minPriceCondition && maxPriceCondition;
+          });
+
+          // Limpa mensagem de erro se houver produtos
+          if (this.produtos.length > 0) {
+            this.erro = ''; // Limpa a mensagem de erro
+          } else {
+            this.erro = 'Nenhum produto encontrado para os critérios de preço especificados.'; // Mensagem se o filtro por preço não retornar nada
+          }
+        } else {
+          // Se não houver resultados, exibe uma mensagem
+          this.produtos = [];
+          this.erro = 'Nenhum produto encontrado, favor mudar os termos de busca.'; // Define mensagem de erro se não houver resultados
+        }
       },
-      // Se ocorrer um erro durante a busca, exibe a mensagem de erro e limpa a lista de produtos
+
       error: (err) => {
+        // Em caso de erro na requisição
         this.erro = 'Erro ao buscar produtos. Tente novamente.'; // Define mensagem de erro
         this.produtos = []; // Limpa a lista de produtos
       }
