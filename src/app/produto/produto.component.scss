@@ -1,0 +1,28 @@
+/* Estilo geral para o componente Produto */
+h2 {
+  font-family: Arial, Helvetica, sans-serif; /* Fonte do título */
+  color: #0056b3; /* Cor do título */
+  margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif; /* Fonte do parágrafo */
+  color: black; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  margin: 5px 0; /* Espaço vertical entre parágrafos */
+}
+
+a {
+  display: inline-block; /* Faz o link se comportar como um botão */
+  background-color: #007bff; /* Cor de fundo do link */
+  color: white; /* Cor do texto */
+  padding: 10px 15px; /* Espaço interno do link */
+  border-radius: 4px; /* Bordas arredondadas */
+  text-decoration: none; /* Remove sublinhado */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Muda a cor de fundo do link ao passar o mouse */
+a:hover {
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}

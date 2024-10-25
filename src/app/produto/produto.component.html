@@ -1,6 +1,13 @@
+<!-- Verifica se o objeto 'produto' existe antes de renderizar os detalhes -->
 <div *NgIf="produto">
+  <!-- Exibe o título do produto -->
   <h2>{{ produto.title }}</h2>
+  
+  <!-- Exibe o preço do produto -->
   <p>Preço: {{ produto.price }}</p>
+  
+  <!-- Link para visualizar o produto no Mercado Livre em uma nova aba -->
   <a [href]="produto.permalink" target="_blank">Ver no Mercado Livre</a>
 </div>
+
 
