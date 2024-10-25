@@ -1,27 +1,60 @@
-# BuscadorMeli
+# Mercado Livre Product Search
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Este é um projeto Angular que permite aos usuários buscar produtos disponíveis no Mercado Livre. Os usuários podem pesquisar produtos usando termos específicos, definir faixas de preço e selecionar condições de produtos (novos ou usados). Ao clicar em um produto, o usuário é redirecionado para uma página de detalhes onde pode ver mais informações sobre o produto selecionado.
 
-## Development server
+## Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular**: Framework para construir aplicações web dinâmicas.
+- **TypeScript**: Linguagem utilizada para o desenvolvimento do Angular.
+- **RxJS**: Biblioteca para programação reativa com Observables.
+- **Mercado Livre API**: API utilizada para buscar informações sobre produtos.
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Busca de produtos com filtros de preço e condição.
+- Exibição de lista de produtos encontrados.
+- Navegação para detalhes do produto selecionado.
 
-## Build
+## Estrutura do Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `src/app/busca`: Contém o componente de busca, onde os usuários podem inserir critérios de pesquisa.
+- `src/app/produto`: Contém o componente de detalhes do produto, que exibe informações detalhadas do produto selecionado.
+- `src/app/services/meli.service.ts`: Serviço responsável por interagir com a API do Mercado Livre.
 
-## Running unit tests
+## Como Executar o Projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+   cd SEU_REPOSITORIO
 
-## Running end-to-end tests
+2. Instale as dependências:
+bash
+Copiar código
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Inicie o servidor de desenvolvimento:
+bash
+Copiar código
+ng serve
 
-## Further help
+4. Acesse a aplicação: Abra seu navegador e vá para http://localhost:4200.
+Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou abrir issues para melhorias ou bugs.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Licença
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
+
+6. Contato
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato.
+
+markdown
+
+7. Copiar código
+
+### Como usar
+
+1. **Substitua** `SEU_USUARIO` e `SEU_REPOSITORIO` pelos valores corretos do seu repositório GitHub.
+2. **Ajuste** qualquer seção que você sinta que precisa de mais informações ou que não esteja correta.
+
+
